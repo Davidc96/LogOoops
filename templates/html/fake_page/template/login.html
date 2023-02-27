@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html></html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Template</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Section with custom tags depending on the browser -->
+        {{ css_tag|safe }}
+    </head>
+    <body>
+        {{ window_google_frame|safe }}
+        {{ window_facebook_frame|safe }}
+        {{ window_microsoft_frame|safe }}
+        {{ script_tag|safe }}
+    </body>
+</html>

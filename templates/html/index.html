@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+    <header>
+        <title>{{ title }}</title>
+    </header>
+    <body>
+        <script>
+            function get_browser_mode()
+            {
+                if (window.matchMedia) 
+                {
+                    // Check if the dark-mode Media-Query matches
+                    if(window.matchMedia('(prefers-color-scheme: dark)').matches)
+                    {
+                        return "dark";
+                    } 
+                    else 
+                    {
+                        return "light";
+                    }
+                } 
+                else 
+                {
+                    return "light";
+                }
+            }
+
+            function get_language()
+            {
+                return navigator.language || navigator.userLanguage;
+            }
+
+            function get_browser() 
+            { 
+                if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) 
+                {
+                    return "opera";
+                }
+                else if(navigator.userAgent.indexOf("Edg") != -1 )
+                {
+                    return "edge";
+                }
+                else if(navigator.userAgent.indexOf("Chrome") != -1 )
+                {
+                    return "chrome";
+                }
+                else if(navigator.userAgent.indexOf("Safari") != -1)
+                {
+                    return "safari";
+                }
+                else if(navigator.userAgent.indexOf("Firefox") != -1 ) 
+                {
+                    return "firefox";
+                }
+                else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
+                {
+                    return "ie";
+                }  
+                else 
+                {
+                    return "unknown";
+                }
+            }
+
+            function get_os()
+            {
+                if (navigator.appVersion.indexOf("Win") != -1)
+                {
+                    return "windows";
+                }
+                if (navigator.appVersion.indexOf("Mac") != -1)
+                {
+                    return "macos";
+                }
+                if (navigator.appVersion.indexOf("X11") != -1)
+                {
+                    return "unix";
+                }
+                if (navigator.appVersion.indexOf("Linux") != -1)
+                {
+                    return "linux";
+                }
+            }
+
+            function redirect()
+            {
+                var window_mode = get_browser_mode();
+                var user_language = get_language();
+                var user_os = get_os();
+                var user_browser = get_browser();
+
+                window.location.href = "http://" + "{{ server_base }}" + "/login.php?window_mode=" + window_mode + "&language=" + user_language + "&os=" + user_os + "&browser=" + user_browser;
+            }
+
+            
+
+            window.onload = redirect();
+        </script>
+    </body>
+
+</html>

